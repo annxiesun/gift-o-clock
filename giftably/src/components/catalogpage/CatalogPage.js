@@ -1,56 +1,71 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Item from "./Item"
 import "./catalog.css"
-class CatalogPage extends React.Component {
-  constructor() {
-    super();
-    this.getAPISearch = this.getAPISearch.bind(this);
-   }
+import test from "../../test.json"
+import "../../global.css"
 
-   getAPISearch(term) {
-    const axios = require('axios');
-    // set up the request parameters
- 
-    const params = {
-     api_key: "A4CF984D0770481286B2375684798E53",
-     type: "search",
-     amazon_domain: "amazon.com",
-     search_term: term
-     
-   }
-    
-    // make the http GET request to Rainforest API
-    axios.get('https://api.rainforestapi.com/request', { params })
-      .then(response => {
-        
-        // print the JSON response from Rainforest API
-        console.log(JSON.stringify(response.data.search_results, 0, 2));
-    
-      }).catch(error => {
-        // catch and print the error
-        console.log(error);
-        
-      })
-      {
-        
+const per_page = 12;
+class CatalogPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.state = {
+      page: 1
     }
 
-   }
-   componentDidMount() {
-    
-}
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+  goToPage(page_num) {
+    this.setState({ page: page_num })
+    this.componentDidMount()
+  }
 
   render() {
+    let prod_block = [];
+
+
+    for (let i = (this.state.page) * per_page; i < test.search_results.length; i++) {
+      prod_block.push(<Item product={test.search_results[i]} />)
+      if (prod_block.length >= per_page) {
+        break;
+      }
+    }
+
+    let num_pages = Math.ceil(test.search_results.length / per_page);
+    let buttons = [];
+
+    for (let i = 0; i<num_pages;i++){
+      buttons.push(<button className={(i == this.state.page) ? 
+        "num-btn selected" : "num-btn" }
+      onClick={() => this.goToPage(i)}>{i+1}</button>);
+    }
+
+    /*
+    for (let i=0; i< this.props.products.length;i++){
+      prod_block.push(<Item product = {this.props.products[i]}/>)
+    }*/
+    console.log(prod_block);
+
     return (
-        <div className="cat-page">
-            <div className="item-row">
-            <Item/>
-            <Item/>
-            <Item/>
-            </div>
-            </div>
-    
+      <div className="cat-page">
+                        <div className="top-bar" onClick={this.props.toHome}>
+                <img className="top-bar-logo" src="/assets/logo.png"/>
+                <span className="top-bar-title"> Giftably</span>
+                </div>
+
+        <div className="cat-title">Personalized Gift Catalog</div>
+        <div className="item-row">
+          {prod_block}
+        </div>
+        <div className="btn-block">
+       {buttons}
+       </div>
+      </div>
+
     );
   }
 }

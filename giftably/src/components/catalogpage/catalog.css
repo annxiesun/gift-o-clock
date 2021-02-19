@@ -20,16 +20,22 @@
 
 .cat-page{
     font-family: Lato;
+    padding: 7em;
 }
 
 .image {
+    width:14em;
     height:10em;
+    object-fit: cover;
 }
 
 .item-row {
-    display:grid;
-    grid-template-columns: 14em 14em 14em;
+    display:flex;
     column-gap: 4em;
+    grid-row-gap: 4em;
+    width:90vw;
+    flex-wrap: wrap;
+   
 }
 
 .item-price {
@@ -39,4 +45,33 @@ font-weight:700;
 
 .item-name {
     margin-bottom: 1em;
+}
+
+.cat-title{
+    font-size: 3em;
+    font-family:Lato;
+    font-weight:1000;
+    text-transform: uppercase;
+    margin-bottom:0.4em;
+}
+
+.num-btn {
+    background:none;
+    padding: 0.5em 0.7em 0.5em 0.7em;
+    border-style:solid;
+    border-color:black;
+    margin-left:1em;
+    cursor: pointer;
+    border-radius:5px;
+    font-weight:1000;
+    font-family: Lato;
+
+}
+
+.num-btn.selected {
+    background: var(--yellow)
+}
+
+.btn-block {
+    margin-top: 4em;
 }

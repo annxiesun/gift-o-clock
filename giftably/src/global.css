@@ -10,8 +10,127 @@
 
   button{
       outline:none;
+      -webkit-user-select: none; /* Safari */        
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    
   }
 
   input{
     outline:none;
   }
+
+  a {
+    outline:none;
+    color:inherit;
+    text-decoration: inherit;
+  }
+
+  .loading {
+      background: var(--yellow);
+      width:100vw;
+      height:100vh;
+      position: relative;
+
+  }
+  .loading-icon{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+      width:2em;
+      padding:1em;
+      border-style:solid;
+      border-radius: 20px;
+      border-color:black;
+      border-width:4px;
+  }
+
+  .top-bar-logo {
+    height: 2em;
+  }
+
+  .top-bar-title {
+    display: block;
+    font-family: Cocogoose;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    float:right;
+  }
+
+  .top-bar {
+    position: absolute;
+    top: 3em;
+    left: 3em;
+    cursor: pointer;
+    animation-duration: 1s;
+  }
+
+  .top-bar:hover{
+    animation: swing;
+    animation-duration: 1s;
+  }
+
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.swing {
+  transform-origin: top center;
+  animation-name: swing;
+}
+
+
+.shiny-btn-c {
+  position: relative;
+   overflow: hidden;
+   -webkit-box-shadow: 2px 2px 0px 1px #000000; 
+   box-shadow: 2px 2px 0px 1px #000000;
+   border-radius:4px;
+   cursor: pointer;
+}
+
+.shiny-btn {
+  width:100%;
+  z-index: 5;
+  height:100%;
+  border-color: black;
+  border-width:3px;
+  border-radius:4px;
+  cursor: pointer;
+
+}
+.shiny-btn-c:hover .shine {
+  transform: skewX(20deg) translateX(300px);
+}
+.shine {
+  position: absolute;
+  top: 0;
+  left: -70px;
+  height: 98px;
+  width: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all .3s linear;
+  z-index: 1;
+  transform: skewX(20deg) translateX(0);
+}
