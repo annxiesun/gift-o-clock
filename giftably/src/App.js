@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import OptionPage from "./components/options/OptionPage"
 import CatalogPage from "./components/catalogpage/CatalogPage"
+import HomePage from "./components/homepage/HomePage"
 import React, { Component } from 'react';
 
 class App extends React.Component {
@@ -16,9 +17,10 @@ class App extends React.Component {
   this.updatePriceLimit = this.updatePriceLimit.bind(this)
 
   this.toCatalog = this.toCatalog.bind(this);
+  this.toOptions = this.toOptions.bind(this);
 
   this.state = {
-    page: 1,
+    page: 0,
     intrests: ["hello","hi"],
     products: [],
     input_intrest: "hello",
@@ -54,10 +56,17 @@ class App extends React.Component {
     this.setState({page: 2})
   }
 
+  toOptions(){
+    this.setState({page: 1})
+  }
+
   render() {
     console.log(this.state.page)
     let page;
-    if(this.state.page==1){
+    if (this.state.page==0){
+      page=<HomePage toOptions={this.toOptions}/>
+    }
+    else if(this.state.page==1){
       page=        <OptionPage intrests={this.state.intrests}
       input_intrest={this.state.input_intrest}
       updateIntrestInput={this.updateIntrestInput}

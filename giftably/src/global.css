@@ -2,3 +2,12 @@
     --yellow: #FFC800;
     --red: #E60B19;
 }
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./Cocogoose.ttf');
+  }
+
+  button{
+      outline:none;
+  }
