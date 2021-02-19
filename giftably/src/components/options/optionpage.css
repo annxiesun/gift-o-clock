@@ -1,5 +1,122 @@
-.option-page {
+.option-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.option-shape {
     background: var(--yellow);
     height:100vh;
     width:100vw;
+    clip-path: polygon(48% 0, 100% 0, 100% 100%, 75% 100%);
+    position: absolute;
+    right:0;
 }
+
+.option-headline{
+    font-size: 2em;
+    margin-bottom: 1.5em;
+    
+}
+.option-page{
+    font-family: Lato;
+    font-weight:1000;
+    text-transform: uppercase;
+    display:block;
+    margin-left:8em;
+    margin-top:8em;
+}
+
+.option-input {
+    font-size: 1.5em;
+    height: 1.5em;
+    border: none;
+    -webkit-box-shadow: 0px 21px 35px -4px rgba(0,0,0,0.1); 
+    box-shadow: 0px 21px 35px -4px rgba(0,0,0,0.1);
+    margin-top:0.3em;
+}
+
+.option-input.intrests {
+    width: 20em;
+
+}
+
+.option-input.price {
+    width: 3em;
+
+}
+.ind {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.intrest-btn{
+    background: var(--yellow);
+    border:none;
+    font-size: 1.5em;
+    height:1.5em;
+    width:1.5em;
+    cursor: pointer;
+}
+
+.next-button {
+    background: var(--yellow);
+    margin-top: 2em;
+    border-radius: 10px;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-style:solid;
+    border-color: black;
+    border-width: 2px;
+}
+/*************/
+
+.tag-flex{
+    display: flex-box;
+    margin-bottom: 2em;
+}
+.intrest-tag{
+    display: inline-block;
+    width:auto;
+    background: var(--yellow);
+    border-style:solid;
+    border-color:black;
+    border-width: 0.2em;
+    border-radius: 8px;
+    padding:0.3em;
+    margin-right: 0.5em;
+    margin-top: 1em;
+    
+}
+.tag-x{
+    background:none;
+    border:none;
+    cursor: pointer;
+}
+/***/
+
+.option-bo{
+    height:13em;
+    position: absolute;
+    transform: rotate(30deg);
+    top:25%;
+    right:30%;
+}
+.option-cy{
+    height:13em;
+    position: absolute;
+    bottom:4%;
+    right: 5%;
+}
+
+@media only screen and (max-width: 800px) {
+    .option-bo{
+        right:20%;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .option-bo{
+        right:13%;
+    }
+  }

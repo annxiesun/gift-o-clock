@@ -23,7 +23,7 @@ class App extends React.Component {
     page: 0,
     intrests: ["hello","hi"],
     products: [],
-    input_intrest: "hello",
+    input_intrest: "hkokok",
     price_floor:0,
     price_limit:0
   }
@@ -36,7 +36,9 @@ class App extends React.Component {
   updatePriceLimit(e) {
     this.setState({price_limit:e.target.value})
   }
+
   updateIntrestInput(e) {
+    console.log("jj");
     this.setState({input_intrest: e.target.value})
   }
 
@@ -61,7 +63,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.page)
+
     let page;
     if (this.state.page==0){
       page=<HomePage toOptions={this.toOptions}/>
