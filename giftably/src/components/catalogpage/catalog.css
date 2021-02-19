@@ -1,0 +1,42 @@
+.item-card{
+    width:14em;
+    height: 20em;
+    padding: 1em;
+    border-style:solid;
+}
+
+.item-card:hover{
+    cursor: pointer;
+}
+
+.star {
+    stroke: black;
+    stroke-width: 2px;
+    color: var(--yellow);
+    margin-bottom: 1em;
+    padding: 0.2em;
+    
+}
+
+.cat-page{
+    font-family: Lato;
+}
+
+.image {
+    height:10em;
+}
+
+.item-row {
+    display:grid;
+    grid-template-columns: 14em 14em 14em;
+    column-gap: 4em;
+}
+
+.item-price {
+font-size: 1.5em;
+font-weight:700;
+}
+
+.item-name {
+    margin-bottom: 1em;
+}
